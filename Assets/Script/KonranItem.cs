@@ -24,7 +24,7 @@ public class KonranItem : MonoBehaviour
             _moveSpeedIndex = Random.Range(0, obj._moveSpeed.Length);
             obj._moveSpeed[_moveSpeedIndex] = obj._moveSpeed[_moveSpeedIndex] * -1;
             Debug.Log("‚Ô‚Â‚©‚Á‚½");
-            Debug.Log(obj._moveSpeed.Length);
+            Debug.Log(_moveSpeedIndex);
         }
     }
 }
