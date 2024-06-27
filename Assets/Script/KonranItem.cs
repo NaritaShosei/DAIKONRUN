@@ -4,27 +4,21 @@ using UnityEngine;
 
 public class KonranItem : MonoBehaviour
 {
-    int _moveSpeedIndex;
+    [SerializeField] float _moveSpeed;
+    Rigidbody2D _rigidbody;
     // Start is called before the first frame update
     void Start()
     {
-
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody.velocity = new Vector2(-_moveSpeed, 0);
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Wall")
         {
-            var obj = collision.gameObject.GetComponent<DaikonMove>();
-            _moveSpeedIndex = Random.Range(0, obj._moveSpeed.Length);
-            obj._moveSpeed[_moveSpeedIndex] = obj._moveSpeed[_moveSpeedIndex] * -1;
-            Debug.Log("‚Ô‚Â‚©‚Á‚½");
-            Debug.Log(_moveSpeedIndex);
+            Destroy(gameObject);
         }
     }
 }
