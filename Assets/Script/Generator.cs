@@ -37,7 +37,7 @@ public class Generator : MonoBehaviour
         if (_player.transform.position.x >= _position && _player.transform.position.x <= _endPos)
         {
             _randomItemSpawn.y = Random.Range(_startObject.transform.position.y, _endObject.transform.position.y);
-            _randomItemSpawn.x = _startObject.transform.position.x;
+            _randomItemSpawn.x = _player.transform.position.x + 6;
             Instantiate(_wallPrefab, _randomItemSpawn, Quaternion.identity);
             _position += 5;
         }
