@@ -7,7 +7,7 @@ public class Clear : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        DistanceText.IsClear = false;
     }
 
     // Update is called once per frame
@@ -20,6 +20,8 @@ public class Clear : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("ÉNÉäÉA");
+            DistanceText.IsClear = true;
+            SceneChangeManager.SceneChange("Result");
         }
     }
 }
