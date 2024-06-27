@@ -16,6 +16,7 @@ public class Generator : MonoBehaviour
     [SerializeField] GameObject _wallPrefab;
     [SerializeField] GameObject _player;
     float _position = 5;
+    [SerializeField] float _endPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class Generator : MonoBehaviour
             Instantiate(_itemPrefab, _randomItemSpawn, Quaternion.identity);
             _timer = 0;
         }
-        if (_player.transform.position.x >= _position)
+        if (_player.transform.position.x >= _position && _player.transform.position.x <= _endPos)
         {
             _randomItemSpawn.y = Random.Range(_startObject.transform.position.y, _endObject.transform.position.y);
             _randomItemSpawn.x = _startObject.transform.position.x;
