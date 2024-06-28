@@ -9,6 +9,8 @@ public class TimeManager : MonoBehaviour
     static float _time;
     Text _text;
     [SerializeField] TextKind _textKind;
+    [SerializeField] GameObject _clearSound;
+    [SerializeField] GameObject _gameOverSound;
     enum TextKind
     {
         timerText,
@@ -52,10 +54,12 @@ public class TimeManager : MonoBehaviour
         if (_time > 0)
         {
             _text.text = (_timer - _time).ToString("F2") + "•b‚ÅƒNƒŠƒA‚µ‚½";
+            _gameOverSound.SetActive(false);
         }
         else if (_time <= 0)
         {
             _text.text = "ŽžŠÔØ‚ê!!!";
+            _clearSound.SetActive(false);
         }
     }
 }

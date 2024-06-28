@@ -15,7 +15,6 @@ public class DistanceText : MonoBehaviour
     [SerializeField] TextKind _textKind;
     enum TextKind
     {
-
         distanceText,
         resultText
     }
@@ -43,17 +42,17 @@ public class DistanceText : MonoBehaviour
     {
         _dis = Vector2.Distance(_playerObject.transform.position, _endObject.transform.position);
         _distance = _dis;
-        _text.text = "ゴールまで" + _distance.ToString("F0") + "m";
+        _text.text = $"ゴールまで{_distance.ToString("F0")}m";
     }
     void Result()
     {
         if (_distance > 50)
         {
-            _text.text = "ゴールまで残り" + _distance.ToString("F0") + "ｍだった！！\nふざけてる？";
+            _text.text = $"ゴールまで残り{_distance.ToString("F0")}ｍだった...\nふざけてる？";
         }
         else if (_distance > 1 && !IsClear)
         {
-            _text.text = "ゴールまで残り" + _distance.ToString("F0") + "ｍだった！！\n惜しいね";
+            _text.text = $"ゴールまで残り {_distance.ToString("F0")}ｍだった!!!\n惜しいね";
         }
         else if (IsClear)
         {

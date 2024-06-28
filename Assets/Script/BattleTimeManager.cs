@@ -9,6 +9,8 @@ public class BattleTimeManager : MonoBehaviour
     static float _timer;
     Text _text;
     [SerializeField] TextKind _textKind;
+    [SerializeField] GameObject _clearSound;
+    [SerializeField] GameObject _gameOverSound;
     enum TextKind
     {
         battleText,
@@ -48,6 +50,14 @@ public class BattleTimeManager : MonoBehaviour
     }
     void BattleResult()
     {
-        _text.text = _timer.ToString("F2") + "Ç≈ÉSÅ[Éã!!!";
+        if (_timer <= 30)
+        {
+            _gameOverSound.SetActive(false);
+        }
+        else
+        {
+            _clearSound.SetActive(false);
+        }
+        _text.text = _timer.ToString("F2") + "ïbÇ≈\nÉSÅ[Éã!!!";
     }
 }
