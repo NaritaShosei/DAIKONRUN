@@ -46,8 +46,11 @@ public class DaikonMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Item")
         {
-            _index = Random.Range(0, _moveSpeed.Length);
-            _moveSpeed[_index] = _moveSpeed[_index] * -1;
+            _index = Random.Range(0, 3);
+            if (_index < _moveSpeed.Length)
+            {
+                _moveSpeed[_index] = _moveSpeed[_index] * -1;
+            }
             Destroy(collision.gameObject);
             Debug.Log("‚Ô‚Â‚©‚Á‚½");
             Debug.Log(_index);

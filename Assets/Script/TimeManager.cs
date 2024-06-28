@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -56,7 +55,7 @@ public class TimeManager : MonoBehaviour
         }
         else if (_time <= 0)
         {
-            _text.text = "残念！！\n時間切れ！！！ｗ";
+            _text.text = "時間切れ!!!";
         }
     }
 }
