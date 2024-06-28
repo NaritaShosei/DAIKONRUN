@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class Generatol2P : MonoBehaviour
 {
-    [Header("スポーンしたいもの")]
-    [SerializeField] GameObject _itemPrefab;
-    [Header("スポーンのインターバル")]
-    [SerializeField] float _interval;
-    float _timer = 0;
-    [Header("ここに入れたオブジェクトとのランダムな間に生成する")]
-    [SerializeField] GameObject _startObject;
-    [SerializeField] GameObject _endObject;
     Vector2 _randomItemSpawn = new Vector2(0, 0);
+    [Header("生成したいオブジェクト")]
     [SerializeField] GameObject _wallPrefab;
-    [SerializeField] GameObject _player;
-    float _position = 5;
+    float _position;
+    [Header("オブジェクトの生成する終点")]
     [SerializeField] float _endPos;
     float _pulusPos = 6;
     // Start is called before the first frame update
     void Start()
     {
+        _position = this.transform.position.x + 5;
         while (_position < _endPos)
         {
             _randomItemSpawn.y = Random.Range(-2,2);

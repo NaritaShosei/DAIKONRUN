@@ -42,7 +42,7 @@ public class TimeManager : MonoBehaviour
     void InGame()
     {
         _time -= Time.deltaTime;
-        _text.text = "c‚èŠÔ‚Í" + _time.ToString("F2");
+        _text.text = "§ŒÀŠÔ : " + _time.ToString("F2");
         if (_time <= 0)
         {
             SceneChangeManager.SceneChange("Result");

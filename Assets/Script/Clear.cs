@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Clear : MonoBehaviour
 {
+    [SerializeField] string _sceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class Clear : MonoBehaviour
         {
             Debug.Log("ÉNÉäÉA");
             DistanceText.IsClear = true;
-            SceneChangeManager.SceneChange("Result");
+            SceneChangeManager.SceneChange(_sceneName);
         }
     }
 }

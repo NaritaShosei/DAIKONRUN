@@ -15,12 +15,20 @@ public class Generator : MonoBehaviour
     Vector2 _randomItemSpawn = new Vector2(0, 0);
     [SerializeField] GameObject _wallPrefab;
     [SerializeField] GameObject _player;
-    float _position = 5;
+    float _position;
     [SerializeField] float _endPos;
+    float _plusPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _position = this.transform.position.x - 3;
+        while (_position < _endPos)
+        {
+            _randomItemSpawn.y = Random.Range(-2, 2);
+            _randomItemSpawn.x = _position + _plusPos;
+            Instantiate(_wallPrefab, _randomItemSpawn, Quaternion.identity);
+            _position += 6;
+        }
     }
 
     // Update is called once per frame
@@ -30,16 +38,9 @@ public class Generator : MonoBehaviour
         if (_timer > _interval)
         {
             _randomItemSpawn.y = Random.Range(_startObject.transform.position.y, _endObject.transform.position.y);
-            _randomItemSpawn.x = _startObject.transform.position.x; 
+            _randomItemSpawn.x = _startObject.transform.position.x;
             Instantiate(_itemPrefab, _randomItemSpawn, Quaternion.identity);
             _timer = 0;
-        }
-        if (_player.transform.position.x >= _position && _player.transform.position.x <= _endPos)
-        {
-            _randomItemSpawn.y = Random.Range(_startObject.transform.position.y, _endObject.transform.position.y);
-            _randomItemSpawn.x = _player.transform.position.x + 6;
-            Instantiate(_wallPrefab, _randomItemSpawn, Quaternion.identity);
-            _position += 5;
         }
     }
 }

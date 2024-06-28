@@ -17,9 +17,30 @@ public class DaikonMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position += new Vector3(Input.GetAxisRaw("Horizontal") * _moveSpeed[0] * Time.deltaTime, 0, 0);
-        //transform.position += new Vector3(0, Input.GetAxisRaw("Vertical") * _moveSpeed[1] * Time.deltaTime, 0);
-        _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * _moveSpeed[0],Input.GetAxisRaw("Vertical") * _moveSpeed[1]);
+        if (Input.GetKey(KeyCode.A))
+        {
+            _rb.velocity = Vector2.left * _moveSpeed[0] + Vector2.up * _rb.velocity.y;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            _rb.velocity = Vector2.right * _moveSpeed[0] + Vector2.up * _rb.velocity.y;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            _rb.velocity = Vector2.up * _moveSpeed[1] + Vector2.right * _rb.velocity.x;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            _rb.velocity = Vector2.down * _moveSpeed[1] + Vector2.right * _rb.velocity.x;
+        }
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        {
+            _rb.velocity = Vector2.right * 0 + Vector2.up * _rb.velocity.y;
+        }
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+        {
+            _rb.velocity = Vector2.up * 0 + Vector2.right * _rb.velocity.x;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
