@@ -52,7 +52,7 @@ public class DistanceText : MonoBehaviour
         }
         else if (_distance > 1 && !IsClear)
         {
-            _text.text = $"ゴールまで残り {_distance.ToString("F0")}ｍだった!!!\n惜しいね";
+            _text.text = $"ゴールまで残り {_distance.ToString("F0")}ｍだった!!!\nおしいね";
         }
         else if (IsClear)
         {
