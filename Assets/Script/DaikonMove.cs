@@ -8,10 +8,12 @@ public class DaikonMove : MonoBehaviour
     public float[] _moveSpeed;
     int _index;
     Rigidbody2D _rb;
+    AudioSource _audioSource;
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,6 +53,7 @@ public class DaikonMove : MonoBehaviour
             {
                 _moveSpeed[_index] = _moveSpeed[_index] * -1;
             }
+            _audioSource.Play();
             Destroy(collision.gameObject);
             Debug.Log("‚Ô‚Â‚©‚Á‚½");
             Debug.Log(_index);
